@@ -1,4 +1,9 @@
-section{
+#animation{
+    opacity: 0;
+    transition: all .5s;
+}
+
+#flash{
     opacity: 0;
     transition: all .5s;
 }
