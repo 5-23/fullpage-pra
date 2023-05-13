@@ -14,13 +14,18 @@
 
 <body style="text-align: center;">
     <div id="fullpage" style="font-size: 100px;">
-        <div class="section">hello?</div>
+        <div class="section">FullPage.js</div>
         <div class="section">
-            hi
-            <h1 id="animation">animation</h1>
+            animation
+            <p>
+                <img class="turn-img" src="img/images.png">
+                <img class="turn-img" src="img/images.png">
+                <img class="turn-img" src="img/images.png">
+            </p>
         </div>
-        <div class="section">I'm 5-23</div>
-        <div class="section">awesomering is <b id="flash">god</b></div>
+        <div class="section">
+            awesomering is <b id="flash">god</b>
+        </div>
     </div>
 
 
@@ -29,17 +34,24 @@
             autoScrolling: true,
             scrollHorizontally: true,
             scrollingSpeed: 500,
-            sectionsColor: ['#fff', '#ddd', '#fff', '#ddd', '#fff'],
+            sectionsColor: ['#fff', '#f0ffff', '#fffff0'],
             loopHorizontal: true,
             onLeave: (before, after) => {
-                document.getElementById("animation").style.opacity = "0"
                 document.getElementById("flash").style.opacity = "0"
+                document.querySelectorAll(".turn-img").forEach(e => {
+                    e.style.opacity = "0"
+                    e.style.transform = "scale(0)"
+                })
                 if (after.index == 1) {
-                    setTimeout(() => {
-                        document.getElementById("animation").style.opacity = "1"
-                    }, 500)
+                    let i = 3.5;
+                    document.querySelectorAll(".turn-img").forEach(e => {
+                        setTimeout(() => {
+                            e.style.opacity = "1"
+                            e.style.transform = "scale(1)"
+                        }, 100*i++)
+                    })
                 }
-                if (after.index == 3) {
+                if (after.index == 2) {
                     setTimeout(() => {
                         document.getElementById("flash").style.opacity = "1"
                     }, 500)
